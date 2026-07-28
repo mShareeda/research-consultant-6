@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Global Reset and Typography Unification */
+* {
+  font-family: 'Cairo', sans-serif !important;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.02) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.02) 0px, transparent 50%);
+  background-attachment: fixed;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/* Fluid headers */
+h1 { font-size: 1.4rem !important; line-height: 1.25 !important; }
+h2 { font-size: 1.25rem !important; line-height: 1.25 !important; }
+h3 { font-size: 1.15rem !important; }
+
+@media (min-width: 768px) {
+  h1 { font-size: 2.25rem !important; }
+  h2 { font-size: 1.85rem !important; }
+  h3 { font-size: 1.5rem !important; }
+}
+
+/* Mermaid Custom Styles */
+.mermaid svg {
+  font-family: 'Cairo', sans-serif !important;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.02));
+}
+
+.mermaid .node rect, .mermaid .node circle, .mermaid .node polygon {
+  transition: all 0.3s ease;
+}
+
+.mermaid .edgePath path {
+  stroke: #94a3b8 !important;
+  stroke-width: 1.5px !important;
+}
+
+.mermaid .label {
+  font-weight: 700 !important;
+  color: #1e293b !important;
+}
+
+/* Scrollbars */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.custom-scrollbar-v2::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.custom-scrollbar-v2::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+.custom-scrollbar-v2::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+  
+  html, body {
+    background: white !important;
+    font-size: 11pt !important;
+  }
+
+  .no-print { display: none !important; }
+
+  #report-content { padding: 0 !important; }
+
+  .mermaid {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    page-break-inside: avoid !important;
+  }
+
+  .mermaid svg {
+    width: 80% !important;
+    height: auto !important;
+    max-height: 400px !important; /* Prevent vertical framework from taking too much page space */
+  }
+
+  .tag, .section-box, .variable-box {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
