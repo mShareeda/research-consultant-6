@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-const DEFAULT_API_KEY = "AIzaSyBCtgf6ReEc2qQYKN0KIPMIAswUkOVISo";
+const DEFAULT_API_KEY = "";
 
 // https://vitejs.dev/config/
 export default defineConfig({
