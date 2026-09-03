@@ -69,6 +69,10 @@ createServer(async (req, res) => {
     res.writeHead(401, {
       "WWW-Authenticate": `Basic realm="${REALM}"`,
       "Content-Type": "text/plain; charset=utf-8",
+      // Without this, a browser or intermediary that already has a cached
+      // 200 for this URL (e.g. from before SITE_PASSWORD was set) could
+      // serve that stale copy instead of ever reaching this check again.
+      "Cache-Control": "no-store",
     });
     res.end("Authentication required.");
     return;
